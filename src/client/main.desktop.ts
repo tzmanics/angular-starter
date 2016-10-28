@@ -8,15 +8,20 @@ const Menu: any = electron.Menu;
 const shell: any = electron.shell;
 // const {crashReporter} = require('electron');
 const BrowserWindow = electron.BrowserWindow;
+const Menubar = require('menubar');
+
 let mainWindow: any = null;
 let template: any;
 let menu: any;
-
-
+let mb = Menubar();
 
 if (process.env.NODE_ENV === 'development') {
   require('electron-debug')();
 }
+
+mb.on('ready', function ready () {
+  console.log('app is ready');
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -43,7 +48,7 @@ app.on('ready', () => {
 
   let appTitle: string = `Groceries`;
 
-  
+
 
   let helpMenu: any = {
     label: 'Help',

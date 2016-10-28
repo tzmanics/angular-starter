@@ -1,5 +1,8 @@
 {
   "name": "sample",
   "version": "1.0.0",
-  "main": "main.desktop.js"
+  "main": "main.desktop.js",
+  "dependencies": {
+    "menubar": "~5.1.0"
+  }
 }
